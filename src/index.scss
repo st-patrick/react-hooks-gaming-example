@@ -8,13 +8,13 @@ body {
   background-image: url(./assets/images/spacebg.jpg);
   background-size: cover;
   background-attachment: fixed;
-  filter: contrast(0.7) brightness(0.3);
+  filter: brightness(0.15);
   position: absolute;
   width: 100vw;
   height: 100vh;
 }
 
-$cinematic-margin-y: 2vh;
+$cinematic-margin-y: 4vh;
 $cinematic-margin-x: 2vw;
 
 main {
@@ -45,14 +45,19 @@ main {
   overflow: hidden;
   margin: 0px;
 
-  filter: blur(20px);
+  padding-top: $cinematic-margin-y;
 
+  text-align: right;
+
+  clip-path: polygon(calc(100vw - 200px) $cinematic-margin-y, (100vw - $cinematic-margin-x) $cinematic-margin-y,
+                  (100vw - $cinematic-margin-x) (100vh - $cinematic-margin-y), calc(100vw - 150px) (100vh - $cinematic-margin-y));
+}
+
+.blurred {
+  filter: blur(20px);
   background-image: url(./assets/images/spacebg.jpg);
   background-size: cover;
   background-attachment: fixed;
-
-  clip-path: polygon(calc(100vw - 600px) $cinematic-margin-y, (100vw - $cinematic-margin-x) $cinematic-margin-y,
-                  (100vw - $cinematic-margin-x) (100vh - $cinematic-margin-y), calc(100vw - 400px) (100vh - $cinematic-margin-y));
 }
 
 #burger-menu {
@@ -66,43 +71,48 @@ main {
 
 
 
+
+
+
 $tabs-nav-width: 100px;
 
 nav#tabs {
   position: absolute;
-  left: 0;
-  top: 0;
+  right: $cinematic-margin-x;
+  top: $cinematic-margin-y;
   height: 100vh - 2*$cinematic-margin-y;
-  width: $tabs-nav-width;
-  background: white;
   mix-blend-mode: overlay;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .tab-button {
-  width: $tabs-nav-width;
-  height: $tabs-nav-width - 10px;
-  margin: 5px 0px;
-  background: black;
-  transform: skew(0deg, 20deg);
+  width: 200px;
+  height: $cinematic-margin-y;
+  background: rgba(30, 200, 255, 0.1);
 
-  transition: width;
+  transition: background-color;
   transition-delay: 0s;
   transition-duration: 100ms;
   transition-timing-function: ease-out;
+
+  margin-bottom: 5px;
 
   text-align: center;
   font-size: 24pt;
 
   &:hover {
-    width: $tabs-nav-width + 20px;
+    background-color: rgba(30, 255, 255, 0.2);
   }
 
-  > * {
-    padding: 20px;
-    transform: skew(0deg, -20deg);
+  :after {
+    background: inherit;
+    filter: blur(50px);
+  }
+
+  > div {
+    padding-left: 20px;
   }
 
 }
