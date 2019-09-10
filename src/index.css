@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  color: white; }
+
+.bg {
+  background-image: url(./assets/images/spacebg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  filter: contrast(0.7) brightness(0.3);
+  position: absolute;
+  width: 100vw;
+  height: 100vh; }
+
+main {
+  position: absolute;
+  top: 2vh;
+  background-image: url(./assets/images/spacebg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  width: 98vw;
+  height: 96vh; }
+
+.slide-menu-bg {
+  width: 100vw;
+  height: 100vh;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0px;
+  z-index: 1;
+  overflow: hidden;
+  margin: 0px;
+  filter: blur(20px);
+  background-image: url(./assets/images/spacebg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  clip-path: polygon(calc(100vw - 600px) 2vh, 98vw 2vh, 98vw 98vh, calc(100vw - 400px) 98vh); }
+
+#burger-menu:checked ~ .slide-menu {
+  right: 0; }
+
+nav#tabs {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 96vh;
+  width: 100px;
+  background: white;
+  mix-blend-mode: overlay;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; }
+
+.tab-button {
+  width: 100px;
+  height: 90px;
+  margin: 5px 0px;
+  background: black;
+  transform: skew(0deg, 20deg);
+  transition: width;
+  transition-delay: 0s;
+  transition-duration: 100ms;
+  transition-timing-function: ease-out;
+  text-align: center;
+  font-size: 24pt; }
+  .tab-button:hover {
+    width: 120px; }
+  .tab-button > * {
+    padding: 20px;
+    transform: skew(0deg, -20deg); }
+
+.tab {
+  position: absolute;
+  left: 200px;
+  top: 300px; }
+
+h1 {
+  font-size: 40pt; }
+
+/*# sourceMappingURL=index.css.map */
