@@ -1,3 +1,14 @@
+After realizing I don't have much more time, I started with simpler stuff:
+https://jsfiddle.net/eu81273/812ehkyf/
+
+ok, restart.
+Let's build in HTML & SASS and then translate to React
+
+
+
+
+=======
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

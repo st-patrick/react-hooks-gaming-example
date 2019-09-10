@@ -6,10 +6,10 @@
   -webkit-transform: skew(-30deg);
   transform: skew(-30deg);
   display: inline-block;
-  transition-property: height;
+  transition-property: background-color;
   transition-duration: 200ms;
   transition-delay: 0s; }
-  .tab-button:hover {
-    height: 200px; }
+  .tab-button.large {
+    background-color: purple; }
 
 /*# sourceMappingURL=TabButton.css.map */

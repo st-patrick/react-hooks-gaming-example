@@ -7,9 +7,12 @@ import {useTabPlay} from "./Tab";
 // State is never set so we use the '{}' type.
 export function TabButton(props) {
     const [classprop, setClassprop] = React.useState(props.className);
+    const [ispressed, setIspressed] = React.useState(false);
 
     function onClick() {
-        setClassprop("tab-button large");
+        setIspressed(!ispressed);
+        if (ispressed) { setClassprop("tab-button large"); }
+        else {  setClassprop("tab-button");}
     }
 
     return (

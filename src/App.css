@@ -1,7 +1,8 @@
 body {
   background-image: url("./assets/images/spacebg.jpg");
   background-size: cover;
-  margin: 0; }
+  margin: 0;
+  padding: 20px 40px; }
 
 #root {
   height: 100vh; }
@@ -30,35 +31,62 @@ body {
   transition-duration: 0.3s;
   transition-delay: 0s; }
 
-.box {
-  background: #cdf;
-  width: 200px;
-  height: 200px;
-  position: fixed;
-  overflow: hidden; }
-
-.box#box-2 {
-  left: 220px; }
-
-.box#box-3 {
-  left: 430px; }
-
-.box > .inner {
-  width: 100%;
-  position: absolute;
-  top: 100%;
-  bottom: 0;
+/**
+ * Tabs
+ */
+.tabs {
   display: flex;
-  overflow: hidden; }
+  flex-wrap: wrap; }
 
-.box.show > .inner {
-  top: 0;
-  transition: top 2s ease; }
+.tabs label {
+  order: 1;
+  display: block;
+  padding: 1rem 2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  background: #90CAF9;
+  font-weight: bold;
+  transition: background ease 0.2s; }
 
-.box > .inner > .subInner {
-  position: relative;
+.tabs .tab {
+  order: 99;
+  flex-grow: 1;
   width: 100%;
-  align-self: flex-end;
-  background: #f00; }
+  display: none;
+  padding: 1rem;
+  background: #fff; }
+
+.tabs input[type="radio"] {
+  display: none; }
+
+.tabs input[type="radio"]:checked + label {
+  background: #fff; }
+
+.tabs input[type="radio"]:checked + label + .tab {
+  display: block; }
+
+@media (max-width: 45em) {
+  .tabs .tab,
+  .tabs label {
+    order: initial; }
+
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem; } }
+/**
+ * Generic Styling
+*/
+body {
+  background: #eee;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 10vh;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 60rem;
+  margin: 0 auto;
+  font-size: 112%; }
 
 /*# sourceMappingURL=App.css.map */
