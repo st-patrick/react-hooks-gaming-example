@@ -2,23 +2,18 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import * as ReactDOM from "react-dom";
+import { Tab } from "./components/Tabs/Tab";
+import { TabButtons } from "./components/Tabs/TabButtons";
+import {TabButton2} from "./components/Tabs/TabButton";
+
+const CountContext = React.createContext();
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Tab />
+      <TabButtons amount={3} />
     </div>
   );
 }

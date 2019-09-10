@@ -1,20 +1,26 @@
 body {
-  background-image: url("./assets/images/spacebg.jpg");
+  background-image: url('./assets/images/spacebg.jpg');
   background-size: cover;
-  margin: 0; }
+  margin: 0;
+  }
 
 #root {
-  height: 100vh; }
+  height: 100vh;
+}
+
+$anim-speed: 0.3s;
 
 #tabs {
   width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+}
 
 #tab-buttons {
   position: absolute;
   bottom: 0;
   text-align: center;
-  width: 100vw; }
+  width: 100vw;
+}
 
 #tab1 {
   width: 100px;
@@ -23,25 +29,30 @@ body {
   margin-left: 100px;
   position: absolute;
   top: 200px;
+
   display: block;
   opacity: 0.5;
   top: 100px;
   transition-property: top, opacity;
-  transition-duration: 0.3s;
-  transition-delay: 0s; }
+  transition-duration: $anim-speed;
+  transition-delay: 0s;
+}
+
 
 .box {
   background: #cdf;
   width: 200px;
   height: 200px;
   position: fixed;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .box#box-2 {
-  left: 220px; }
-
+  left: 220px;
+}
 .box#box-3 {
-  left: 430px; }
+  left: 430px;
+}
 
 .box > .inner {
   width: 100%;
@@ -49,16 +60,17 @@ body {
   top: 100%;
   bottom: 0;
   display: flex;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .box.show > .inner {
   top: 0;
-  transition: top 2s ease; }
+  transition: top 2s ease;
+}
 
 .box > .inner > .subInner {
   position: relative;
   width: 100%;
   align-self: flex-end;
-  background: #f00; }
-
-/*# sourceMappingURL=App.css.map */
+  background: #f00;
+}
