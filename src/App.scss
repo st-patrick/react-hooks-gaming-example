@@ -38,17 +38,18 @@ main {
 
 
 .slide-menu {
-  width: 100vw;
+  width: 40vw;
   height: 100vh;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0px;
-  z-index: 1;
+  z-index: 999999;
   overflow: hidden;
   margin: 0px;
-  clip-path: polygon(calc(100vw - 600px) 2vh, 98vw 2vh, 98vw 98vh, calc(100vw - 400px) 98vh);
+  background: red;
+  clip-path: polygon(calc(100vw - 600px) 0vh, 100vw 0vh, 100vw 100vh, calc(100vw - 400px) 100vh);
 }
 
 .slide-menu-container {
@@ -71,7 +72,7 @@ main {
   top: 0;
   right: 0;
   bottom: 0px;
-  z-index: 1;
+  z-index: 10;
   overflow: hidden;
   margin: 0px;
   filter: blur(20px);
@@ -87,7 +88,7 @@ main {
 }
 
 #burger-menu {
-  z-index: 2;
+  z-index: 12;
   position: absolute;
   right: $cinematic-margin-x;
   top: $cinematic-margin-y;
@@ -136,8 +137,9 @@ nav#tabs {
 
   text-align: center;
 
-  > leading {
+  > h1 {
     font-size: 24pt;
+    margin: 0;
   }
 
   &:hover {
@@ -198,6 +200,8 @@ h1 {
   width: $full-width-xl;
   min-height: 30px;
   margin-bottom: 15px;
+  transition: height;
+  transition-duration: 300ms;
 
   > h3 {
     margin: 5px;
@@ -216,4 +220,67 @@ h1 {
       display: block;
     }
   }
+}
+
+
+////*********  section for custom dropdown  ********////
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
 }

@@ -26,6 +26,11 @@ export function SliderMenu() {
                       </span>
                 </button>
             </nav>
+
+            <div className={"slide-menu"}>
+                dflksdjflk
+                <h1>jhlhlh</h1>
+            </div>
         </div>
     );
 }

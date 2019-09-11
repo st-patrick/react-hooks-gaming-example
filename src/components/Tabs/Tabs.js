@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Accordion} from "../Accordion";
+import {Dropdown} from "../Dropdown";
 
 
 // 'HelloProps' describes the shape of props.
@@ -10,14 +11,23 @@ export function Tabs(props) {
 
     const [tabs, setTabs] = React.useState( []);
 
-    fetch('https://jsonplaceholder.typicode.com/users')
-        .then(res => res.json())
-        .then((data) => {
-            console.log(data)
-            setTabs(data.slice(0, props.number))
-            console.log(tabs)
-        })
-        .catch(console.log);
+    React.useEffect(() => {
+        const abortController = new AbortController()
+        const signal = abortController.signal
+
+        fetch('https://jsonplaceholder.typicode.com/users', {signal: signal})
+            .then(res => res.json())
+            .then((data) => {
+                console.log(data)
+                setTabs(data.slice(0, props.number))
+                console.log(tabs)
+            })
+            .catch(console.log);
+
+        return function cleanup() {
+            abortController.abort();
+        }
+    }, [])
 
     function updateActive(reference, index) {
         if (current_active == index) return;
@@ -31,7 +41,7 @@ export function Tabs(props) {
                 {tabs.map((tab, index) => (
                     <div className={"tab-button " + (current_active == index ? "active" : "")}
                          onClick={() => updateActive(this, index)}>
-                        <leading>{tab.id}</leading>
+                        <h1>{tab.id}</h1>
                         <span>{tab.username}</span></div>
                 ))}
             </nav>
@@ -39,8 +49,9 @@ export function Tabs(props) {
             {tabs.map((tab, index) => (
                 <div className={"tab " + (current_active == index ? "active " : "") + (flipped == index ? "flip-down" : "")} >
                     <h1>{tab.name}</h1>
-                    <h1>{tab.company.catchPhrase}</h1>
-                    <Accordion number={3}/>
+                    <h1>{tab.email}</h1>
+                    <Accordion number={3} tab={tab}/>
+                    <Dropdown number={123} />
                 </div>
             ))}
         </main>
