@@ -1,11 +1,19 @@
-After realizing I don't have much more time, I started with simpler stuff:
-https://jsfiddle.net/eu81273/812ehkyf/
-
-ok, restart.
-Let's build in HTML & SASS and then translate to React
-
 The Tab-Buttons show user ids from the dummy api with usernames
-on the Tabs itself there is the full name of the user and the company's catchphrase
+The Tabs itself show more details
+
+There is a sliding menu but it doesn't do anything.
+
+
+On which technology do you think it could be written on a fancy and faster way and why?
+VueJS of course, because it is super lightweight
+
+What would happen if two or more tabs components were loaded in the DOM? Would it work (explain)?
+The page would technically work, but since everything is absolute-positioned on top, it would have to be inside a relative-Container.
+
+What was the most challenging part of this exercise? And more important did you have fun?
+It was definitely fun but also challenging to find time for it^^
+Also, the tradeoff between wanting to create a great frontend bit also just getting done
+
 
 
 
