@@ -4,46 +4,105 @@
     <meta charset="UTF-8">
     <title>Gameforge Test</title>
 
-    <link rel="stylesheet" href="index.css" type="text/css" />
+    <link rel="stylesheet" href="index.css" type="text/css"/>
+    <link href="assets/hamburgers.min.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="bg"></div>
 
 <main>
+    <nav id="tabs">
+        <div class="tab-button active" onclick="updateActive(this, 0);">
+            <leading>01</leading>
+            <span>asdfsf</span></div>
+        <div class="tab-button" onclick="updateActive(this, 1);">
+            <leading>02</leading>
+            <span>asdfsf</span></div>
+        <div class="tab-button" onclick="updateActive(this, 2);">
+            <leading>03</leading>
+            <span>asdfsf</span></div>
+        <div class="tab-button" onclick="updateActive(this, 3);">
+            <leading>04</leading>
+            <span>asdfsf</span></div>
+        <div class="tab-button" onclick="updateActive(this, 4);">
+            <leading>05</leading>
+            <span>asdfsf</span></div>
+    </nav>
 
-
-    <div class="tab">
-        <h1>Helloooo</h1>
+    <div class="tab active">
+        <h1>Helloooo11</h1>
         <h1>Welcome to OGame</h1>
     </div>
-
+    <div class="tab">
+        <h1>Helloooo22</h1>
+        <h1>Welcome to OGame</h1>
+    </div>
+    <div class="tab">
+        <h1>Helloooo33</h1>
+        <h1>Welcome to OGame</h1>
+    </div>
+    <div class="tab">
+        <h1>Helloooo44</h1>
+        <h1>Welcome to OGame</h1>
+    </div>
+    <div class="tab">
+        <h1>Helloooo55</h1>
+        <h1>Welcome to OGame</h1>
+    </div>
 </main>
 
-<div class="slide-menu-bg blurred"></div>
-<div class="slide-menu-bg">
-    <nav id="tabs">
-        <div class="tab-button"><div>A</div></div>
-        <div class="tab-button"><div>B</div></div>
-        <div class="tab-button"><div>C</div></div>
-        <div class="tab-button"><div>D</div></div>
-        <div class="tab-button"><div>E</div></div>
-    </nav>
+<div class="slide-menu-container">
+    <div class="slide-menu-bg"></div>
+    <div class="slide-menu-bg"></div>
+    <div class="slide-menu-bg"></div>
 </div>
 
-
-
-
-<nav>
-    <input type="checkbox" id="burger-menu" />
-    <label for="burger-menu">Hello</label>
-
-
-
-
-    </div>
+<nav id="burger-menu">
+    <button class="hamburger hamburger--emphatic" type="button" onclick="showHideMenu();">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
 </nav>
 
 
 </body>
 </html>
+
+
+<script>
+    var current_active = 0;
+    var flipped = null;
+
+    function updateActive(reference, index) {
+        if (current_active == index) return;
+
+        var tab_list = document.getElementsByClassName('tab');
+        if (flipped != null) {
+            tab_list[flipped].classList.remove('flip-down');
+        }
+
+        tab_list[current_active].classList.add('flip-down');
+        flipped = current_active;
+
+        tab_list[current_active].classList.remove('active');
+        document.getElementsByClassName('tab-button')[current_active].classList.remove('active');
+
+        current_active = index;
+        tab_list[current_active].classList.add('active');
+        reference.classList.add('active');
+    }
+
+    var is_open = false;
+    function showHideMenu() {
+        is_open = !is_open;
+        if (!is_open) {
+            document.getElementsByClassName('slide-menu-container')[0].classList.add('open');
+            document.getElementsByClassName('hamburger')[0].classList.add('is-active');
+        } else {
+            document.getElementsByClassName('slide-menu-container')[0].classList.remove('open');
+            document.getElementsByClassName('hamburger')[0].classList.remove('is-active');
+        }
+    }
+</script>
