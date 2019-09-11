@@ -1,5 +1,4 @@
 import * as React from "react";
-import './TabButton.css';
 import {Animate} from "react-simple-animate";
 import {useTabPlay} from "./Tab";
 
