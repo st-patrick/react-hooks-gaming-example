@@ -96,7 +96,6 @@
 
     var is_open = false;
     function showHideMenu() {
-        is_open = !is_open;
         if (!is_open) {
             document.getElementsByClassName('slide-menu-container')[0].classList.add('open');
             document.getElementsByClassName('hamburger')[0].classList.add('is-active');
@@ -104,5 +103,6 @@
             document.getElementsByClassName('slide-menu-container')[0].classList.remove('open');
             document.getElementsByClassName('hamburger')[0].classList.remove('is-active');
         }
+        is_open = !is_open;
     }
 </script>
