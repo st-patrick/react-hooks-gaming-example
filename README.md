@@ -4,6 +4,9 @@ https://jsfiddle.net/eu81273/812ehkyf/
 ok, restart.
 Let's build in HTML & SASS and then translate to React
 
+The Tab-Buttons show user ids from the dummy api with usernames
+on the Tabs itself there is the full name of the user and the company's catchphrase
+
 
 
 

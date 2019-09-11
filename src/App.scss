@@ -2,6 +2,7 @@ body {
   margin: 0;
   color: white;
   font-family: Arial;
+  overflow-x: hidden;
 }
 
 $background-url: url("./assets/images/spacebg.jpg");
@@ -157,18 +158,19 @@ nav#tabs {
 .tab {
   position: absolute;
   left: $start-left-xl;
-  top: 300px;
+  top: 100px;
   opacity: 0.0;
+  //mix-blend-mode: exclusion;
   transform: perspective(800px) rotateX(0deg);
   transform-origin: center bottom;
-
+  z-index:1;
   transition-property: transform, opacity;
   transition-duration: 400ms;
 
   &.active {
     opacity: 1.0;
     transform: perspective(800px) rotateX(0deg);
-
+    z-index: 9;
     transition-delay: 400ms;
   }
 
@@ -185,4 +187,33 @@ h1 {
 
 .hamburger {
   padding: 35px 30px!important;
+}
+
+
+
+.row {
+  padding: 5px;
+  position: relative;
+  background: black;
+  width: $full-width-xl;
+  min-height: 30px;
+  margin-bottom: 15px;
+
+  > h3 {
+    margin: 5px;
+  }
+
+  > .body {
+    height: 0px;
+    transition: height;
+    transition-duration: 300ms;
+    display: none;
+  }
+
+  &.active {
+    > .body {
+      height: auto;
+      display: block;
+    }
+  }
 }
